@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica San Felipe - Generar Ticket de Soporte</title>
+    <link rel="stylesheet" href="GenerarTicket.css">
+</head>
+<body>
+    <header>
+        <img src="SAN FELIPE.png" alt="Clínica San Felipe">
+        <h1>Generar Ticket de soporte</h1>
+    </header>
+    <div class="form-container">
+        <form action="GenerarTicket.html" method="post">
+            <label for="descripcion">Descripción del ticket</label>
+            <textarea id="descripcion" name="descripcion">Se está generando ticket para ..... </textarea>
+
+            <label for="prioridad">Prioridad</label>
+            <input type="number" id="prioridad" name="prioridad" value="3" min="1" max="5">
+
+            <label for="informacion">Información adicional</label>
+            <textarea id="informacion" name="informacion">Aparte del ticket, este debe ser ..... </textarea>
+
+            <label for="especialista">Especialista</label>
+            <input type="text" id="especialista" name="especialista" value="Cristian Mejía Uribe">
+
+            <div class="buttons">
+                <button type="button" onclick="window.location.href='MenuPrincipal.html'">Guardar</button>
+                <button type="button" onclick="window.location.href='MenuPrincipal.html'">Regresar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket #1 - Discusión</title>
+    <link rel="stylesheet" href="DiscucionTicket.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="SAN FELIPE.png" alt="Clínica San Felipe">
+            <h1>Ticket #1 - Discusión</h1>
+            <div class="notificaciones">
+                <i class="fas fa-bell"></i>
+                <div class="notificacion">
+                    <p>Tienes 1 nuevo mensaje en Ticket #1</p>
+                    <p>Se actualizó el estado de Ticket #2</p>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <div class="info-adicional">
+                <h3>Información adicional</h3>
+                <p>Aporte del ticket, este debe ser...</p>
+
+                <h3>ID emisor</h3>
+                <p>admin5</p>
+
+                <h3>Fecha de creación</h3>
+                <p>2024-05-03</p>
+
+                <h3>ID último modificador</h3>
+                <p>admin5</p>
+
+                <h3>Fecha de última modificación</h3>
+                <p>2024-05-04</p>
+            </div>
+            <div class="mensajes">
+                <h3>Mensajes</h3>
+                <div class="mensaje" data-id="1">
+                    <div class="mensaje-header">
+                        <span class="usuario">Admin1</span>
+                    </div>
+                    <div class="mensaje-body">
+                        <p>Intenta probando estos pasos inicialmente...</p>
+                    </div>
+                </div>
+                <div class="mensaje" data-id="2">
+                    <div class="mensaje-header">
+                        <span class="usuario">User1</span>
+                    </div>
+                    <div class="mensaje-body">
+                        <p>No funciona...</p>
+                    </div>
+                </div>
+                <div class="nuevo-mensaje">
+                    <label for="nuevo-mensaje">Escribe un mensaje...</label>
+                    <textarea id="nuevo-mensaje" name="nuevo-mensaje" rows="3" cols="50"></textarea>
+                    <button onclick="enviarMensaje()">Enviar</button>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button id="modificar-btn" onclick="modificarMensaje()" disabled>Modificar</button>
+            <button onclick="regresar()">Regresar</button>
+        </div>
+    </div>
+    <script>
+        let mensajeSeleccionado = null;
+
+        function modificarTicket() {
+            alert('Modificar Ticket');
+        }
+
+        function regresar() {
+            window.location.href = 'DetallesTicket.html';
+        }
+
+        function enviarMensaje() {
+            var mensajeTexto = document.getElementById('nuevo-mensaje').value;
+            if (mensajeTexto.trim() !== "") {
+                var mensajesDiv = document.querySelector('.mensajes');
+
+                // Si hay un mensaje seleccionado, modificarlo
+                if (mensajeSeleccionado) {
+                    mensajeSeleccionado.querySelector('.mensaje-body p').textContent = mensajeTexto;
+                    mensajeSeleccionado = null;
+                    document.getElementById('nuevo-mensaje').value = '';
+                    document.getElementById('modificar-btn').disabled = true;
+                    return;
+                }
+
+                // Crear un nuevo elemento de mensaje
+                var nuevoMensajeDiv = document.createElement('div');
+                nuevoMensajeDiv.classList.add('mensaje');
+
+                var nuevoMensajeHeader = document.createElement('div');
+                nuevoMensajeHeader.classList.add('mensaje-header');
+                var nuevoMensajeUsuario = document.createElement('span');
+                nuevoMensajeUsuario.classList.add('usuario');
+                nuevoMensajeUsuario.textContent = 'User1';
+                nuevoMensajeHeader.appendChild(nuevoMensajeUsuario);
+
+                var nuevoMensajeBody = document.createElement('div');
+                nuevoMensajeBody.classList.add('mensaje-body');
+                var nuevoMensajeTexto = document.createElement('p');
+                nuevoMensajeTexto.textContent = mensajeTexto;
+                nuevoMensajeBody.appendChild(nuevoMensajeTexto);
+
+                nuevoMensajeDiv.appendChild(nuevoMensajeHeader);
+                nuevoMensajeDiv.appendChild(nuevoMensajeBody);
+                nuevoMensajeDiv.setAttribute('onclick', 'seleccionarMensaje(this)');
+
+                mensajesDiv.appendChild(nuevoMensajeDiv);
+
+                // Limpiar el campo de texto
+                document.getElementById('nuevo-mensaje').value = '';
+            }
+        }
+
+        function seleccionarMensaje(mensajeDiv) {
+            mensajeSeleccionado = mensajeDiv;
+            document.getElementById('nuevo-mensaje').value = mensajeDiv.querySelector('.mensaje-body p').textContent;
+            document.getElementById('modificar-btn').disabled = false;
+        }
+
+        function modificarMensaje() {
+            enviarMensaje();
+        }
+    </script>
+</body>
+</html>

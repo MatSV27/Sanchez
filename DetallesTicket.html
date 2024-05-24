@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica San Felipe - Generar Ticket de Soporte</title>
+    <link rel="stylesheet" href="DetallesTicket.css">
+</head>
+<body>
+    <header>
+        <img src="SAN FELIPE.png" alt="Clínica San Felipe">
+        <h1>Ticket #1</h1>
+        <button class="return" onclick="window.location.href='VisualizarTicket.html'">Regresar</button>
+    </header>
+    <div class="contenidoTicket">
+        <div class="details">
+            <h3>Descripción del Ticket</h3>
+            <p id="descripcion">Se esta generando este ticket para...</p>
+        </div>
+        <div class="seccion1">
+            <div class="details detSec1">
+                <h3>Prioridad</h3>
+                <p id="prioridad" style="width: 20px;">3</p>
+            </div>
+            <div class="details detSec1">
+                <h3>Especialista</h3>
+                <p id="especialista">Cristian Mejia Uribe</p>
+            </div>
+        </div>
+        <div class="details">
+            <h3>Información Adicional</h3>
+            <p id="informacionAdicional">A parte del ticket, esto debe ser...</p>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div class="seccion2">
+                    <div class="details">
+                        <h3>ID Emisor</h3>
+                        <p>admin5</p>
+                    </div>
+                    <div class="details">
+                        <h3>Fecha de creación</h3>
+                        <p>03/05/2024</p>
+                    </div>
+                </div>
+                <div class="seccion2">
+                    <div class="details">
+                        <h3>ID último modificador</h3>
+                        <p id="idModificador">admin1</p>
+                    </div>
+                    <div class="details">
+                        <h3>Fecha de última modicación</h3>
+                        <p id="fechaModificacion">05/05/2024</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <button class="butDetails" onclick="window.location.href='DiscucionTicket.html'">Interactuar con Ayudante de Mesa</button>
+                <button class="butDetails" onclick="window.location.href='ModificarTicket.html'">Modificar</button>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    cargarDatos();
+                });
+                function guardarDatos() {
+                    const descripcion = document.getElementById('descripcion').innerText;
+                    const prioridad = document.getElementById('prioridad').innerText;
+                    const especialista = document.getElementById('especialista').innerText;
+                    const infoAdicional = document.getElementById('informacionAdicional').innerText;
+
+                    const ticket = {
+                        descripcion,
+                        prioridad,
+                        especialista,
+                        informacionAdicional,
+                    };
+                    localStorage.setItem('ticket', JSON.stringify(ticket));
+                    window.location.href = 'ModificarTicket.html';
+                }
+                function cargarDatos() {
+                    const ticket = JSON.parse(localStorage.getItem('ticket'));
+                    if (ticket) {
+                        document.getElementById('descripcion').innerText = ticket.descripcion;
+                        document.getElementById('prioridad').innerText = ticket.prioridad;
+                        document.getElementById('especialista').innerText = ticket.especialista;
+                        document.getElementById('informacionAdicional').innerText = ticket.informacionAdicional;
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

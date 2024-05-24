@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica San Felipe - Inicio de Sesión</title>
+    <link rel="stylesheet" href="IniciarSesion.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="SAN FELIPE.png" alt="Clínica San Felipe">
+        </div>
+        <div class="right">
+            <h2>Inicie Sesión</h2>
+            <form id="loginForm">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" value="">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" value="">
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previene el envío del formulario
+
+            const usuario = document.getElementById('usuario').value;
+            const contrasena = document.getElementById('contrasena').value;
+
+            if (usuario === 'admin' && contrasena === '1234') {
+                window.location.href = 'MenuPrincipalAdmin.html';
+            } else {
+                window.location.href = 'MenuPrincipal.html';
+            }
+        });
+    </script>
+</body>
+</html>

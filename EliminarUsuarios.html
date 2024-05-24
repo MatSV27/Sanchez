@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica San Felipe - Mesa de Ayuda</title>
+    <link rel="stylesheet" href="EliminarUsuarios.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img src="SAN FELIPE.png" alt="Clínica San Felipe">
+        <h1>Lista de Usuarios</h1>
+        <button class="return" onclick="window.location.href='AdministrarUsuarios.html'">Regresar</button>
+    </header>
+    <div class="container">
+        <ul class="list">
+
+            <li class="item">
+
+                <h2>Usuario #1</h2>
+
+                <div class="details">
+                    <h3>Username</h3>
+                    <p>user1</p>
+                </div>
+
+                <div class="details">
+                    <h3>Rango</h3>
+                    <p>Usuario</p>
+                </div>
+
+                <button class="butDelete">Eliminar</button>
+                <div class="confirmationButtons hidden">
+                    <button class="confirmYes">¿Estás seguro?</button>
+                    <button class="confirmNo">No</button>
+                </div>
+            </li>
+
+            <li class="item">
+
+                <h2>Usuario #2</h2>
+
+                <div class="details">
+                    <h3>Username</h3>
+                    <p>user2</p>
+                </div>
+
+                <div class="details">
+                    <h3>Rango</h3>
+                    <p>Usuario</p>
+                </div>
+
+                <button class="butDelete">Eliminar</button>
+                <div class="confirmationButtons hidden">
+                    <button class="confirmYes">¿Estás seguro?</button>
+                    <button class="confirmNo">No</button>
+                </div>
+            </li>
+
+            <li class="item">
+
+                <h2>Usuario #3</h2>
+
+                <div class="details">
+                    <h3>Username</h3>
+                    <p>admin1</p>
+                </div>
+
+                <div class="details">
+                    <h3>Rango</h3>
+                    <p>Admin</p>
+                </div>
+
+                <button class="butDelete">Eliminar</button>
+                <div class="confirmationButtons hidden">
+                    <button class="confirmYes">¿Estás seguro?</button>
+                    <button class="confirmNo">No</button>
+                </div>
+            </li>
+
+            <li class="item">
+
+                <h2>Usuario #4</h2>
+
+                <div class="details">
+                    <h3>Username</h3>
+                    <p>user3</p>
+                </div>
+
+                <div class="details">
+                    <h3>Rango</h3>
+                    <p>Usuario</p>
+                </div>
+
+                <button class="butDelete">Eliminar</button>
+                <div class="confirmationButtons hidden">
+                    <button class="confirmYes">¿Estás seguro?</button>
+                    <button class="confirmNo">No</button>
+                </div>
+            </li>
+
+            <li class="item">
+
+                <h2>Usuario #5</h2>
+
+                <div class="details">
+                    <h3>Username</h3>
+                    <p>admin2</p>
+                </div>
+
+                <div class="details">
+                    <h3>Rango</h3>
+                    <p>Admin</p>
+                </div>
+
+                <button class="butDelete">Eliminar</button>
+                <div class="confirmationButtons hidden">
+                    <button class="confirmYes">¿Estás seguro?</button>
+                    <button class="confirmNo">No</button>
+                </div>
+            </li>
+
+            <li class="item">
+
+                <h2>Usuario #6</h2>
+
+                <div class="details">
+                    <h3>Username</h3>
+                    <p>user4</p>
+                </div>
+
+                <div class="details">
+                    <h3>Rango</h3>
+                    <p>Usuario</p>
+                </div>
+
+                <button class="butDelete">Eliminar</button>
+                <div class="confirmationButtons hidden">
+                    <button class="confirmYes">¿Estás seguro?</button>
+                    <button class="confirmNo">No</button>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+    <script>
+        document.querySelectorAll('.butDelete').forEach(button => {
+            button.addEventListener('click', function() {
+                const listItem = this.closest('.item');
+                listItem.querySelector('.butDelete').classList.add('hidden');
+                listItem.querySelector('.confirmationButtons').classList.remove('hidden');
+            });
+        });
+
+        document.querySelectorAll('.confirmYes').forEach(button => {
+            button.addEventListener('click', function() {
+                const listItem = this.closest('.item');
+                listItem.querySelector('.confirmationButtons').classList.add('hidden');
+                listItem.querySelector('.butDelete').classList.remove('hidden');
+                alert('Elemento eliminado');
+                location.reload();
+            });
+        });
+
+        document.querySelectorAll('.confirmNo').forEach(button => {
+            button.addEventListener('click', function() {
+                const listItem = this.closest('.item');
+                listItem.querySelector('.confirmationButtons').classList.add('hidden');
+                listItem.querySelector('.butDelete').classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+

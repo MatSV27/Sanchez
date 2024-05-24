@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica San Felipe - Administrar Usuarios</title>
+    <link rel="stylesheet" href="AdministrarUsuarios.css">
+</head>
+<body>
+    <header>
+        <img src="SAN FELIPE.png" alt="Clínica San Felipe">
+        <h1>Administrar Usuarios</h1>
+    </header>
+    <div class="container">
+        <div class="left">
+            <button onclick="window.location.href='AgregarUsuario.html'">Agregar Usuario</button>
+            <button onclick="window.location.href='ModificarUsuario.html'">Modificar Usuario</button>
+            <button onclick="window.location.href='EliminarUsuarios.html'">Eliminar Usuario</button>
+            <button style="background-color: red;" onclick="window.location.href='MenuPrincipalAdmin.html'">Salir</button>
+        </div>
+        <div class="right">
+            <h2>Lista de Usuarios</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se llenarán los datos de los usuarios -->
+                    <tr>
+                        <td>1</td>
+                        <td>Juan Pérez</td>
+                        <td>juan.perez@ejemplo.com</td>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>María González</td>
+                        <td>maria.gonzalez@ejemplo.com</td>
+                        <td>Usuario</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Pedro Rodríguez</td>
+                        <td>pedro.rodriguez@ejemplo.com</td>
+                        <td>Usuario</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Ana López</td>
+                        <td>ana.lopez@ejemplo.com</td>
+                        <td>Usuario</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Luisa Martínez</td>
+                        <td>luisa.martinez@ejemplo.com</td>
+                        <td>Usuario</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>José García</td>
+                        <td>jose.garcia@ejemplo.com</td>
+                        <td>Usuario</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

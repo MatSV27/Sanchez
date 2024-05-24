@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica San Felipe - Generar Ticket de Soporte</title>
+    <link rel="stylesheet" href="TicketSinAsignar.css">
+</head>
+<body>
+    <header>
+        <img src="SAN FELIPE.png" alt="Clínica San Felipe">
+        <h1>Ticket #1</h1>
+    </header>
+    <div class="contenidoTicket">
+        <div class="details">
+            <h3>Descripción del Ticket</h3>
+            <p contenteditable="true" id="descripcion">Se esta generando este ticket para...</p>
+        </div>
+        <div class="seccion1">
+            <div class="details detSec1">
+                <h3>Prioridad</h3>
+                <p contenteditable="true" id="prioridad" style="width: 20px;">3</p>
+            </div>
+        </div>
+        <div class="details">
+            <h3>Información Adicional</h3>
+            <p  contenteditable="true" id="informacionAdicional">A parte del ticket, esto debe ser...</p>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div class="seccion2">
+                    <div class="details">
+                        <label for="especialista"><h3>Especialista</h3></label>
+                        <select id="especialista">
+                            <option value="LeonelMU">Leonel Mejia Uribe</option>
+                            <option value="AngeloPG">Angelo Pedraza Gonzales</option>
+                            <option value="JosueLC">Josue Lujan Carrión</option>
+                        </select>
+                    </div>
+                    <div class="details">
+                        <label for="horarioatencion"><h3>Especialista</h3></label>
+                        <select id="horarioatencion">
+                            <option value="temprano">8:00 am</option>
+                            <option value="tarde">2:00 pm</option>
+                            <option value="noche">7:00 pm</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <button class="butDetails" onclick="window.location.href='MenuPrincipal.html'">Guardar</button>
+                <button class="butDetails" onclick="window.location.href='MenuPrincipal.html'">Cancelar</button>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    cargarDatos();
+                });
+                function guardarDatos() {
+                    const descripcion = document.getElementById('descripcion').innerText;
+                    const prioridad = document.getElementById('prioridad').innerText;
+                    const infoAdicional = document.getElementById('informacionAdicional').innerText;
+
+                    const ticket = {
+                        descripcion,
+                        prioridad,
+                        especialista,
+                        informacionAdicional,
+                    };
+                    localStorage.setItem('ticket', JSON.stringify(ticket));
+                    window.location.href = 'ModificarTicket.html';
+                }
+                function cargarDatos() {
+                    const ticket = JSON.parse(localStorage.getItem('ticket'));
+                    if (ticket) {
+                        document.getElementById('descripcion').innerText = ticket.descripcion;
+                        document.getElementById('prioridad').innerText = ticket.prioridad;
+                        document.getElementById('informacionAdicional').innerText = ticket.informacionAdicional;
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
